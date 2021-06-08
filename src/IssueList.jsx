@@ -67,15 +67,15 @@ class IssueTable extends React.Component
             <Table aria-label='Simple Table'>
                 <TableHead key = 'head'>
                     <TableRow key = 'titles'>
-                        <TableCell component="th" scope="row"> Delete </TableCell>
-                        <TableCell component="th" scope="row"> Edit</TableCell>
-                        <TableCell component="th" scope="row"> ID </TableCell>
-                        <TableCell component="th" scope="row"> Status </TableCell>
-                        <TableCell component="th" scope="row"> Owner </TableCell>
-                        <TableCell component="th" scope="row"> Created </TableCell>
-                        <TableCell component="th" scope="row"> Effort </TableCell>
-                        <TableCell component="th" scope="row"> Completion Date </TableCell>
-                        <TableCell component="th" scope="row"> Title </TableCell>
+                        <TableCell component="th" scope="row" key='delete'> Delete </TableCell>
+                        <TableCell component="th" scope="row" key='edit'> Edit</TableCell>
+                        <TableCell component="th" scope="row" key='id'> ID </TableCell>
+                        <TableCell component="th" scope="row" key='status'> Status </TableCell>
+                        <TableCell component="th" scope="row" key='owner'> Owner </TableCell>
+                        <TableCell component="th" scope="row" key='created'> Created </TableCell>
+                        <TableCell component="th" scope="row" key='effort'> Effort </TableCell>
+                        <TableCell component="th" scope="row" key='completiondate'> Completion Date </TableCell>
+                        <TableCell component="th" scope="row" key='title'> Title </TableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>
