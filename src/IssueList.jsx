@@ -65,7 +65,7 @@ class IssueTable extends React.Component
     return (
         <TableContainer component={Paper}>
             <Table aria-label='Simple Table'>
-                <TableHead>
+                <TableHead key = 'head'>
                     <TableRow key = 'titles'>
                         <TableCell component="th" scope="row"> Delete </TableCell>
                         <TableCell component="th" scope="row"> Edit</TableCell>
