@@ -30,11 +30,11 @@ export default class Help extends React.Component
         return(
             <div>
                 <Button onClick = {this.handleClickOpen}>Help</Button>
-                <Dialog onClose={this.handleClose} aria-labelledby="customized-dialog-title" open={this.state.open}>
-                    <DialogTitle id="customized-dialog-title" onClose={this.handleClose}>
+                <Dialog onClose={this.handleClose} aria-labelledby="customized-dialog-title" open={this.state.setOpen}>
+                    <DialogTitle id="customized-dialog-title" onClose={this.handleClose} >
                         Logging in 
                     </DialogTitle>
-                    <DialogContent dividers>
+                    <DialogContent dividers >
                         <Typography gutterBottom>
                             This application uses passport's google oath2.0 strategy to log users in using their google account.
                             This allows users to have different issues on different google accounts. 

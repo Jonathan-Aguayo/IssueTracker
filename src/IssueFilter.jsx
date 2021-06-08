@@ -81,7 +81,7 @@ export class IssueFilter extends React.Component
             <Container component = {Paper} style = {{marginLeft:0, marginBottom:'10px'}} maxWidth = {false}>
                 <FormControl>
                     <InputLabel id='statusLabel'>Status</InputLabel>
-                    <Select value = {this.state.status} label='Status' labelID='statusLabel' id='status' onChange = {this.onChangeStatus} style={{minWidth:'110px',}}>
+                    <Select value = {this.state.status} label='Status' labeliD='statusLabel' id='status' onChange = {this.onChangeStatus} style={{minWidth:'110px',}}>
                         <MenuItem value={''}>Any</MenuItem>
                         <MenuItem value={'New'}>New</MenuItem>
                         <MenuItem value={'Open'}>Open</MenuItem>
@@ -94,7 +94,7 @@ export class IssueFilter extends React.Component
                 
                 <FormControl>
                     <InputLabel id='effortFromLabel'>Effort from</InputLabel>
-                    <Select value = {this.state.effortFrom} label='effortFrom' labelID='effortFromLabel' id='effortFrom' onChange = {this.onChangeEffortFrom} style={{minWidth:'110px'}}>
+                    <Select value = {this.state.effortFrom} label='effortFrom' labeliD='effortFromLabel' id='effortFrom' onChange = {this.onChangeEffortFrom} style={{minWidth:'110px'}}>
                         <MenuItem value={1}>1</MenuItem>
                         <MenuItem value={2}>2</MenuItem>
                         <MenuItem value={3}>3</MenuItem>
@@ -105,7 +105,7 @@ export class IssueFilter extends React.Component
                 
                 <FormControl>
                     <InputLabel id='effortToLabel'>Effort To</InputLabel>
-                    <Select value = {this.state.effortTo} label='effortTo' labelID='effortTo' id='effortto' onChange = {this.onChangeEffortTo} style={{minWidth:'110px'}}>
+                    <Select value = {this.state.effortTo} label='effortTo' labeliD='effortTo' id='effortto' onChange = {this.onChangeEffortTo} style={{minWidth:'110px'}}>
                         <MenuItem value={1}>1</MenuItem>
                         <MenuItem value={2}>2</MenuItem>
                         <MenuItem value={3}>3</MenuItem>
