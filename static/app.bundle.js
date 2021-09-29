@@ -21409,7 +21409,7 @@ var Help = /*#__PURE__*/function (_React$Component) {
 
     _this = _super.call(this, props);
     _this.state = {
-      setOpen: false
+      Open: false
     };
     _this.handleClickOpen = _this.handleClickOpen.bind(_assertThisInitialized(_this));
     _this.handleClose = _this.handleClose.bind(_assertThisInitialized(_this));
@@ -21420,14 +21420,14 @@ var Help = /*#__PURE__*/function (_React$Component) {
     key: "handleClickOpen",
     value: function handleClickOpen() {
       this.setState({
-        open: true
+        Open: true
       });
     }
   }, {
     key: "handleClose",
     value: function handleClose() {
       this.setState({
-        open: false
+        Open: false
       });
     }
   }, {
@@ -21438,7 +21438,7 @@ var Help = /*#__PURE__*/function (_React$Component) {
       }, "Help"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_2__.default, {
         onClose: this.handleClose,
         "aria-labelledby": "customized-dialog-title",
-        open: this.state.open
+        open: this.state.Open
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_material_ui_core_DialogTitle__WEBPACK_IMPORTED_MODULE_3__.default, {
         id: "customized-dialog-title",
         onClose: this.handleClose
@@ -21464,7 +21464,7 @@ var Help = /*#__PURE__*/function (_React$Component) {
         autoFocus: true,
         onClick: this.handleClose,
         color: "primary"
-      }, "Save changes"))));
+      }, "close"))));
     }
   }]);
 
@@ -22058,7 +22058,7 @@ var IssueFilter = /*#__PURE__*/function (_React$Component) {
       }, "Status"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_material_ui_core_Select__WEBPACK_IMPORTED_MODULE_5__.default, {
         value: this.state.status,
         label: "Status",
-        labelID: "statusLabel",
+        labelid: "statusLabel",
         id: "status",
         onChange: this.onChangeStatus,
         style: {
@@ -22083,7 +22083,7 @@ var IssueFilter = /*#__PURE__*/function (_React$Component) {
       }, "Effort from"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_material_ui_core_Select__WEBPACK_IMPORTED_MODULE_5__.default, {
         value: this.state.effortFrom,
         label: "effortFrom",
-        labelID: "effortFromLabel",
+        labelid: "effortFromLabel",
         id: "effortFrom",
         onChange: this.onChangeEffortFrom,
         style: {
@@ -22104,7 +22104,7 @@ var IssueFilter = /*#__PURE__*/function (_React$Component) {
       }, "Effort To"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_material_ui_core_Select__WEBPACK_IMPORTED_MODULE_5__.default, {
         value: this.state.effortTo,
         label: "effortTo",
-        labelID: "effortTo",
+        labelid: "effortTo",
         id: "effortto",
         onChange: this.onChangeEffortTo,
         style: {
@@ -22238,18 +22238,37 @@ var IssueRow = /*#__PURE__*/function (_React$Component) {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(_material_ui_core_TableRow__WEBPACK_IMPORTED_MODULE_6__.default, {
         style: {
           backgroundColor: backgroundColor
-        }
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(_material_ui_core_TableCell__WEBPACK_IMPORTED_MODULE_7__.default, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_8__.default, {
+        },
+        key: this.props.key
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(_material_ui_core_TableCell__WEBPACK_IMPORTED_MODULE_7__.default, {
+        key: "deletebutton".concat(this.props.issue._id)
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_8__.default, {
         color: "secondary",
         onClick: function onClick() {
           _this2.props.deleteIssue(_this2.props.issue._id);
         }
-      }, " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(_material_ui_icons__WEBPACK_IMPORTED_MODULE_9__.default, null), " ")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(_material_ui_core_TableCell__WEBPACK_IMPORTED_MODULE_7__.default, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_8__.default, {
+      }, " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(_material_ui_icons__WEBPACK_IMPORTED_MODULE_9__.default, null), " ")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(_material_ui_core_TableCell__WEBPACK_IMPORTED_MODULE_7__.default, {
+        key: "editbutton".concat(this.props.issue._id)
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_8__.default, {
         style: {
           color: 'grey'
         },
         href: "/edit/".concat(this.props.issue._id)
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(_material_ui_icons__WEBPACK_IMPORTED_MODULE_10__.default, null), " ")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(_material_ui_core_TableCell__WEBPACK_IMPORTED_MODULE_7__.default, null, this.props.issue._id), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(_material_ui_core_TableCell__WEBPACK_IMPORTED_MODULE_7__.default, null, this.props.issue.status), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(_material_ui_core_TableCell__WEBPACK_IMPORTED_MODULE_7__.default, null, this.props.issue.owner), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(_material_ui_core_TableCell__WEBPACK_IMPORTED_MODULE_7__.default, null, this.props.issue.created.toDateString()), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(_material_ui_core_TableCell__WEBPACK_IMPORTED_MODULE_7__.default, null, this.props.issue.effort), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(_material_ui_core_TableCell__WEBPACK_IMPORTED_MODULE_7__.default, null, this.props.issue.completionDate ? this.props.issue.completionDate.toDateString() : ''), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(_material_ui_core_TableCell__WEBPACK_IMPORTED_MODULE_7__.default, null, this.props.issue.title));
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(_material_ui_icons__WEBPACK_IMPORTED_MODULE_10__.default, null), " ")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(_material_ui_core_TableCell__WEBPACK_IMPORTED_MODULE_7__.default, {
+        key: "issueid:".concat(this.props.issue._id)
+      }, this.props.issue._id), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(_material_ui_core_TableCell__WEBPACK_IMPORTED_MODULE_7__.default, {
+        key: "issuestatus:".concat(this.props.issue._id)
+      }, this.props.issue.status), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(_material_ui_core_TableCell__WEBPACK_IMPORTED_MODULE_7__.default, {
+        key: "issueowner:".concat(this.props.issue._id)
+      }, this.props.issue.owner), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(_material_ui_core_TableCell__WEBPACK_IMPORTED_MODULE_7__.default, {
+        key: "issuecreated:".concat(this.props.issue._id)
+      }, this.props.issue.created.toDateString()), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(_material_ui_core_TableCell__WEBPACK_IMPORTED_MODULE_7__.default, {
+        key: "issueeffort:".concat(this.props.issue._id)
+      }, this.props.issue.effort), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(_material_ui_core_TableCell__WEBPACK_IMPORTED_MODULE_7__.default, {
+        key: "issuecompletiondate:".concat(this.props.issue._id)
+      }, this.props.issue.completionDate ? this.props.issue.completionDate.toDateString() : ''), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(_material_ui_core_TableCell__WEBPACK_IMPORTED_MODULE_7__.default, {
+        key: "issuetitle:".concat(this.props.issue._id)
+      }, this.props.issue.title));
     }
   }]);
 
@@ -22280,37 +22299,54 @@ var IssueTable = /*#__PURE__*/function (_React$Component2) {
         });
       });
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(_material_ui_core_TableContainer__WEBPACK_IMPORTED_MODULE_11__.default, {
-        component: _material_ui_core_Paper__WEBPACK_IMPORTED_MODULE_12__.default
+        component: _material_ui_core_Paper__WEBPACK_IMPORTED_MODULE_12__.default,
+        key: "tablecontainer"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(_material_ui_core_Table__WEBPACK_IMPORTED_MODULE_13__.default, {
-        "aria-label": "Simple Table"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(_material_ui_core_TableHead__WEBPACK_IMPORTED_MODULE_14__.default, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(_material_ui_core_TableRow__WEBPACK_IMPORTED_MODULE_6__.default, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(_material_ui_core_TableCell__WEBPACK_IMPORTED_MODULE_7__.default, {
+        "aria-label": "Simple Table",
+        key: "maintable"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(_material_ui_core_TableHead__WEBPACK_IMPORTED_MODULE_14__.default, {
+        key: "head"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(_material_ui_core_TableRow__WEBPACK_IMPORTED_MODULE_6__.default, {
+        key: "titles"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(_material_ui_core_TableCell__WEBPACK_IMPORTED_MODULE_7__.default, {
         component: "th",
-        scope: "row"
+        scope: "row",
+        key: "delete"
       }, " Delete "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(_material_ui_core_TableCell__WEBPACK_IMPORTED_MODULE_7__.default, {
         component: "th",
-        scope: "row"
+        scope: "row",
+        key: "edit"
       }, " Edit"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(_material_ui_core_TableCell__WEBPACK_IMPORTED_MODULE_7__.default, {
         component: "th",
-        scope: "row"
+        scope: "row",
+        key: "id"
       }, " ID "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(_material_ui_core_TableCell__WEBPACK_IMPORTED_MODULE_7__.default, {
         component: "th",
-        scope: "row"
+        scope: "row",
+        key: "status"
       }, " Status "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(_material_ui_core_TableCell__WEBPACK_IMPORTED_MODULE_7__.default, {
         component: "th",
-        scope: "row"
+        scope: "row",
+        key: "owner"
       }, " Owner "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(_material_ui_core_TableCell__WEBPACK_IMPORTED_MODULE_7__.default, {
         component: "th",
-        scope: "row"
+        scope: "row",
+        key: "created"
       }, " Created "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(_material_ui_core_TableCell__WEBPACK_IMPORTED_MODULE_7__.default, {
         component: "th",
-        scope: "row"
+        scope: "row",
+        key: "effort"
       }, " Effort "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(_material_ui_core_TableCell__WEBPACK_IMPORTED_MODULE_7__.default, {
         component: "th",
-        scope: "row"
+        scope: "row",
+        key: "completiondate"
       }, " Completion Date "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(_material_ui_core_TableCell__WEBPACK_IMPORTED_MODULE_7__.default, {
         component: "th",
-        scope: "row"
-      }, " Title "))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(_material_ui_core_TableBody__WEBPACK_IMPORTED_MODULE_15__.default, null, issueRows)));
+        scope: "row",
+        key: "title"
+      }, " Title "))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.createElement(_material_ui_core_TableBody__WEBPACK_IMPORTED_MODULE_15__.default, {
+        key: "tablebody"
+      }, issueRows)));
     }
   }]);
 
@@ -22395,7 +22431,7 @@ var IssueList = /*#__PURE__*/function (_React$Component3) {
     value: function loadData() {
       var _this6 = this;
 
-      fetch("/api/v1/issues".concat(this.props.location.search)).then(function (response) {
+      fetch("/api/v1/issues/".concat(this.props.location.search)).then(function (response) {
         return response.json();
       }).then(function (data) {
         console.log("Total count of records:", data._metadata.total_count);
@@ -22408,7 +22444,7 @@ var IssueList = /*#__PURE__*/function (_React$Component3) {
           issues: data.records
         });
       })["catch"](function (err) {
-        alert("Error: ".concat(err));
+        alert("hello: ".concat(err));
       });
     }
   }, {

@@ -10,19 +10,19 @@ export default class Help extends React.Component
     constructor(props)
     {
         super(props);
-        this.state = {setOpen:false}
+        this.state = {Open:false}
         this.handleClickOpen = this.handleClickOpen.bind(this);
         this.handleClose = this.handleClose.bind(this);
     }
 
     handleClickOpen()
     {
-        this.setState({open:true})
+        this.setState({Open:true})
     }
 
     handleClose()
     {
-        this.setState({open:false})
+        this.setState({Open:false})
     }
 
     render()
@@ -30,7 +30,7 @@ export default class Help extends React.Component
         return(
             <div>
                 <Button onClick = {this.handleClickOpen}>Help</Button>
-                <Dialog onClose={this.handleClose} aria-labelledby="customized-dialog-title" open={this.state.setOpen}>
+                <Dialog onClose={this.handleClose} aria-labelledby="customized-dialog-title" open={this.state.Open}>
                     <DialogTitle id="customized-dialog-title" onClose={this.handleClose} >
                         Logging in 
                     </DialogTitle>
@@ -61,7 +61,7 @@ export default class Help extends React.Component
                     </DialogContent>
                     <DialogActions>
                         <Button autoFocus onClick={this.handleClose} color="primary">
-                            Close
+                            close
                         </Button>
                     </DialogActions>
                 </Dialog>
