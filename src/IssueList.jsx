@@ -36,17 +36,17 @@ class IssueRow extends React.Component
     let backgroundColor = ''
     this.props.issue.status === 'Closed' ? backgroundColor = 'SeaGreen' : backgroundColor = ''
     return(
-    <TableRow style={{backgroundColor : backgroundColor}}>
-        <TableCell><IconButton color='secondary' onClick={() => {this.props.deleteIssue(this.props.issue._id)}}> <Delete/> </IconButton></TableCell>
-        <TableCell><IconButton style={{color:'grey'}} href = {`/edit/${this.props.issue._id}`}><Edit/> </IconButton></TableCell>
-        <TableCell>{this.props.issue._id}</TableCell>
-        <TableCell>{this.props.issue.status}</TableCell>
-        <TableCell>{this.props.issue.owner}</TableCell>
-        <TableCell>{this.props.issue.created.toDateString()}</TableCell>
-        <TableCell>{this.props.issue.effort}</TableCell>
-        <TableCell>{this.props.issue.completionDate ?
+    <TableRow style={{backgroundColor : backgroundColor}} key={this.props.key}>
+        <TableCell key={`deletebutton${this.props.issue._id}`}><IconButton color='secondary' onClick={() => {this.props.deleteIssue(this.props.issue._id)}}> <Delete/> </IconButton></TableCell>
+        <TableCell key={`editbutton${this.props.issue._id}`}><IconButton style={{color:'grey'}} href = {`/edit/${this.props.issue._id}`}><Edit/> </IconButton></TableCell>
+        <TableCell key={`issueid:${this.props.issue._id}`}>{this.props.issue._id}</TableCell>
+        <TableCell key={`issuestatus:${this.props.issue._id}`}>{this.props.issue.status}</TableCell>
+        <TableCell key={`issueowner:${this.props.issue._id}`}>{this.props.issue.owner}</TableCell>
+        <TableCell key={`issuecreated:${this.props.issue._id}`}>{this.props.issue.created.toDateString()}</TableCell>
+        <TableCell key={`issueeffort:${this.props.issue._id}`}>{this.props.issue.effort}</TableCell>
+        <TableCell key={`issuecompletiondate:${this.props.issue._id}`}>{this.props.issue.completionDate ?
         this.props.issue.completionDate.toDateString() : ''}</TableCell>
-        <TableCell>{this.props.issue.title}</TableCell>
+        <TableCell key={`issuetitle:${this.props.issue._id}`}>{this.props.issue.title}</TableCell>
     </TableRow>
     );  
     } 
@@ -63,8 +63,8 @@ class IssueTable extends React.Component
     {
     const issueRows = this.props.issues.map(issue => <IssueRow key={issue.id} issue={issue} deleteIssue={this.props.deleteIssue} />)
     return (
-        <TableContainer component={Paper}>
-            <Table aria-label='Simple Table'>
+        <TableContainer component={Paper} key='tablecontainer'>
+            <Table aria-label='Simple Table' key='maintable'>
                 <TableHead key = 'head'>
                     <TableRow key = 'titles'>
                         <TableCell component="th" scope="row" key='delete'> Delete </TableCell>
@@ -78,7 +78,7 @@ class IssueTable extends React.Component
                         <TableCell component="th" scope="row" key='title'> Title </TableCell>
                     </TableRow>
                 </TableHead>
-                <TableBody>
+                <TableBody key='tablebody'>
                     {issueRows}
                 </TableBody>
             </Table>
@@ -143,7 +143,7 @@ export class IssueList extends React.Component
 
     loadData()
     {
-        fetch(`/api/v1/issues${this.props.location.search}`).then(response => 
+        fetch(`/api/v1/issues/${this.props.location.search}`).then(response => 
             response.json()).then(data => 
             {
                 console.log("Total count of records:", data._metadata.total_count);
@@ -156,7 +156,7 @@ export class IssueList extends React.Component
                     this.setState({ issues:data.records });
             }).catch(err => 
                 {
-                    alert(`Error: ${err}`)
+                    alert(`hello: ${err}`)
                 })
     }
 
